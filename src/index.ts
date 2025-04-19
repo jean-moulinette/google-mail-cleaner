@@ -48,6 +48,7 @@ async function main() {
 
             // Get batch of emails
             const { emails, nextPageToken } = await getEmailBatch(gmail, pageToken);
+
             pageToken = nextPageToken;
 
 
@@ -60,6 +61,11 @@ async function main() {
 
             // Process each email in the batch
             for (const email of emails) {
+                if (email.labelIds?.includes('CATEGORY_PROMOTIONS')) {
+                    console.log('Skipping email already labeled as CATEGORY_PROMOTIONS by Google');
+                    continue;
+                }
+
                 process.stdout.write(`\nProcessing email: "${email.subject.substring(0, 50)}${email.subject.length > 50 ? '...' : ''}" from ${email.from.substring(0, 30)}${email.from.length > 30 ? '...' : ''} ... \n`);
 
                 // Classify email using LLM

@@ -6,6 +6,7 @@ export interface EmailData {
     from: string;
     date: string;
     body?: string;
+    labelIds: string[] | null | undefined;
 }
 
 export interface ClassificationResult {

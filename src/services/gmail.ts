@@ -26,7 +26,7 @@ export async function getEmailBatch(
                     format: 'full'
                 });
 
-                const { id, threadId, payload, snippet, internalDate } = email.data;
+                const { id, threadId, payload, snippet, internalDate, labelIds } = email.data;
                 const headers = payload?.headers || [];
 
                 const subject = headers.find(h => h.name?.toLowerCase() === 'subject')?.value || '';
@@ -58,6 +58,7 @@ export async function getEmailBatch(
                     snippet: snippet || '',
                     from,
                     date,
+                    labelIds,
                     body: body.substring(0, 3000) // Limit body size for LLM
                 };
             })
