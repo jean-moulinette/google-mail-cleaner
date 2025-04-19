@@ -1,0 +1,28 @@
+{
+  "name": "google-mail-cleaner",
+  "version": "1.0.0",
+  "description": "A tool to clean Gmail using Gemma3 LLM to identify and remove advertisement emails",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "auth": "tsx src/auth.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^22.14.1",
+    "@types/readline-sync": "^1.4.8",
+    "dotenv": "^16.5.0",
+    "execa": "^9.5.2",
+    "googleapis": "^148.0.0",
+    "readline-sync": "^1.4.10",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.3"
+  }
+}
